@@ -2,9 +2,6 @@ package com.briancalvo.domain;
 
 import javax.persistence.*;
 
-/**
- * Created by Brian on 10/10/2016.
- */
 @Entity
 public class Player {
 

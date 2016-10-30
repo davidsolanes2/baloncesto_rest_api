@@ -6,9 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
 
-/**
- * Created by Brian on 10/10/2016.
- */
 @Entity
 public class Team {
 
