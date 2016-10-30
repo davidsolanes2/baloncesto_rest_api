@@ -15,37 +15,34 @@ public class PlayerController {
     @Autowired
     private PlayerRepository playerRepository;
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Player createPlayer(@RequestBody Player player) {
         return playerRepository.save(player);
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
+    @PutMapping
     public Player updatePlayer(@RequestBody Player player) {
         return playerRepository.save(player);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public List<Player> findAll() {
         return playerRepository.findAll();
     }
 
-    @RequestMapping(value = "/{id}",
-            method = RequestMethod.GET)
+    @GetMapping("/{id}")
     public Player findById(@PathVariable Long id) {
         Player player = playerRepository.findOne(id);
         return player;
     }
 
-    @RequestMapping(value = "/byPoints/{num}",
-            method = RequestMethod.GET)
+    @GetMapping("/byPoints/{num}")
     public List<Player> findByPointsGreaterThan(@PathVariable Integer num) {
         return playerRepository.findByPointsGreaterThan(num);
     }
 
-    @RequestMapping(value = "/{id}",
-            method = RequestMethod.DELETE)
+    @DeleteMapping("/{id}")
     public void deletePlayer(@PathVariable Long id) {
         playerRepository.delete(id);
     }
