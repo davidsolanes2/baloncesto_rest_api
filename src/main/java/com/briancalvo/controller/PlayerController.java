@@ -42,6 +42,11 @@ public class PlayerController {
         return playerRepository.findByPointsGreaterThan(num);
     }
 
+    @GetMapping("/orderByPoints")
+    public List<Player>findByPointOrderByPoints() {
+        return playerRepository.findAllByOrderByPoints();
+    }
+
     @DeleteMapping("/{id}")
     public void deletePlayer(@PathVariable Long id) {
         playerRepository.delete(id);

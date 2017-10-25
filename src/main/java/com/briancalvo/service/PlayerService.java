@@ -45,6 +45,10 @@ public class PlayerService {
         System.out.println("");
         System.out.println("Players with greater or equal than 10.000 points");
         System.out.println(playerRepository.findByPointsGreaterThan(5000));
+
+        System.out.println("");
+        System.out.println("Jugadores ordenados por canastas");
+        System.out.println(playerRepository.findAllByOrderByPoints());
 /*
         System.out.println("");
         System.out.println("Players with number of assists between 2000 and 5000");

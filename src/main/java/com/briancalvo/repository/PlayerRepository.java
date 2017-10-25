@@ -19,6 +19,9 @@ public interface PlayerRepository extends JpaRepository<Player,Long>{
 
     List<Player> findByPoints(Integer points);
 
+    List<Player> findAllByOrderByPoints();
+
+
     // JPL Queries
 /*
     @Query("SELECT player.position,AVG(player.points),AVG(player.rebounds),AVG(player.assists) from Player player GROUP BY player.position")
