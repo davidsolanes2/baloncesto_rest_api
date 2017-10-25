@@ -1,6 +1,7 @@
 package com.briancalvo.service;
 
 import com.briancalvo.domain.Player;
+import com.briancalvo.domain.Position;
 import com.briancalvo.repository.PlayerRepository;
 import com.briancalvo.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,25 +18,25 @@ public class PlayerService {
 
     public void testPlayers(){
 
-        Player player1 = new Player(1,"Lebron","James",26649);
+        Player player1 = new Player(1,"Lebron","James",26649, Position.alero);
         playerRepository.save(player1);
 
-        Player player2 = new Player(2,"Kevin","Durant",7563);
+        Player player2 = new Player(2,"Kevin","Durant",7563, Position.alapivot);
         playerRepository.save(player2);
 
-        Player player3 = new Player(3,"Anthony","Davis",2266);
+        Player player3 = new Player(3,"Anthony","Davis",2266, Position.base);
         playerRepository.save(player3);
 
-        Player player4 = new Player(4,"Stephen","Curry",11088);
+        Player player4 = new Player(4,"Stephen","Curry",11088, Position.escolta);
         playerRepository.save(player4);
 
-        Player player5 = new Player(5,"James","Harden",8904);
+        Player player5 = new Player(5,"James","Harden",8904, Position.pivot);
         playerRepository.save(player5);
 
-        Player player6 = new Player(6,"Kevin","Love",9442);
+        Player player6 = new Player(6,"Kevin","Love",9442, Position.pivot);
         playerRepository.save(player6);
 
-        Player player7 = new Player(7,"Kyrie","Irving",6458);
+        Player player7 = new Player(7,"Kyrie","Irving",6458, Position.escolta);
         playerRepository.save(player7);
 
         System.out.println("");
@@ -44,12 +45,17 @@ public class PlayerService {
 
         System.out.println("");
         System.out.println("Players with greater or equal than 10.000 points");
-        System.out.println(playerRepository.findByPointsGreaterThan(5000));
+        System.out.println(playerRepository.findByPointsGreaterThan(10000));
 
         System.out.println("");
         System.out.println("Jugadores ordenados por canastas");
         System.out.println(playerRepository.findAllByOrderByPoints());
-/*
+
+        System.out.println("");
+        System.out.println("Jugadores con un numero de canastas entre 1000 y 5000");
+        System.out.println(playerRepository.findByPointsBetween(1000, 5000));
+
+        /*
         System.out.println("");
         System.out.println("Players with number of assists between 2000 and 5000");
         System.out.println(playerRepository.findByAssistsBetween(2000,5000));

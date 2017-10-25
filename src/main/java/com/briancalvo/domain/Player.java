@@ -11,12 +11,14 @@ public class Player {
     private String name;
     private String surname;
     private int points;
+    @Enumerated(EnumType.STRING)
+    private Position position;
     // @ManyToOne // un jugador sólo puede pertenecer a un equipo
     // private Team team;
 
     /* Constructores */
 
-    public Player(long id, String name, String surname, int points) {
+    public Player(long id, String name, String surname, int points, Position position) {
         this.id = id;
         this.name = name;
         this.surname = surname;

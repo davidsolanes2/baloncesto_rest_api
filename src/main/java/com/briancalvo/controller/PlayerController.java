@@ -1,12 +1,17 @@
 package com.briancalvo.controller;
 
 import com.briancalvo.domain.Player;
+import com.briancalvo.domain.Position;
 import com.briancalvo.repository.PlayerRepository;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/players")
@@ -43,8 +48,26 @@ public class PlayerController {
     }
 
     @GetMapping("/orderByPoints")
-    public List<Player>findByPointOrderByPoints() {
+    public List<Player> findByPointOrderByPoints() {
         return playerRepository.findAllByOrderByPoints();
+    }
+
+    @GetMapping("/byPointsBetween/{min},{max}")
+    public List<Player> findByPointsBetween(@PathVariable Integer min, @PathVariable Integer max) {
+        return playerRepository.findByPointsBetween(min, max);
+    }
+
+    @GetMapping("/plalyersByPosition")
+    public Map<Position, Collection<Player>> playersByPosition() {
+        List<Player> players = playerRepository.playersByPosition();
+
+        ListMultimap<Position, Player> playerMultiMap = ArrayListMultimap.create();
+
+        for (Player p: players) {
+            playerMultiMap.put(p.getPosition(), p);
+        }
+
+        return playerMultiMap.asMap();
     }
 
     @DeleteMapping("/{id}")
