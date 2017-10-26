@@ -18,14 +18,14 @@ public class Player {
 
     /* Constructores */
 
-    public Player(long id, String name, String surname, int points, Position position) {
-        this.id = id;
+    public Player(int i, String kyrie, String irving, int i1, Position escolta) {
+    }
+
+    public Player(String name, String surname, int points, Position position) {
         this.name = name;
         this.surname = surname;
         this.points = points;
-    }
-
-    public Player(){
+        this.position = position;
     }
 
     /* Getters */
@@ -48,6 +48,11 @@ public class Player {
 
     // public Team getTeam() { return team; }
 
+    public Position getPosition() {
+        return position;
+    }
+
+
     /* Setters */
 
     public void setId(Long id) {
@@ -67,6 +72,10 @@ public class Player {
     }
 
     // public void setTeam(Team team) {this.team = team;}
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
 
     @Override
     public String toString() {

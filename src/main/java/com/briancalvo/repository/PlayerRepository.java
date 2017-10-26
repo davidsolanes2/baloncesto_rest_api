@@ -21,6 +21,8 @@ public interface PlayerRepository extends JpaRepository<Player,Long>{
 
     List<Player> findAllByOrderByPoints();
 
+    List<Player> playersByPosition();
+
 
     // JPL Queries
 /*
