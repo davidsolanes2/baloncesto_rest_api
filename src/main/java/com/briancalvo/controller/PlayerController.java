@@ -45,7 +45,7 @@ public class PlayerController {
     public List<Player> findByPointsGreaterThan(@PathVariable Integer num) {
         return playerRepository.findByPointsGreaterThan(num);
     }
-
+//
     @GetMapping("/orderByPoints")
     public List<Player> findByPointOrderByPoints() {
         return playerRepository.findAllByOrderByPoints();
